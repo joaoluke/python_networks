@@ -76,6 +76,7 @@ Os comentários e os códigos foram retirados do livro: Black Hat Python de Just
 Me mande uma mensagem caso tenha duvidas
 
 João Lucas
-[@meu insta](https://www.instagram.com/joaolucas.deoliveira56/) - joaolucas.deoliveira56
 
-[@meu linkedin](https://www.linkedin.com/in/joaolucasdeoliveira56/)
+[@Instagram](https://www.instagram.com/joaolucas.deoliveira56/) - joaolucas.deoliveira56
+
+[@Linkedin](https://www.linkedin.com/in/joaolucasdeoliveira56/) - joaolucasdeoliveira56/

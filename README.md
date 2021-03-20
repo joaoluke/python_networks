@@ -19,6 +19,7 @@
     <li><a href="#client-tcp">Cliente TCP</a></li>
     <li><a href="#client-udp">Cliente UDP</a></li>
     <li><a href="#server-tcp">Server TCP</a></li>
+    <li><a href="#netcat">Substituindo o Netcat</a></li>
     <li><a href="#contributing">Contribuição</a></li>
     <li><a href="#contact">Contato</a></li>
   </ol>
@@ -69,6 +70,8 @@ Eis um servidor TCP multithreaded padrão:
 Para mais informações sobre a conexão entre servidor TCP e cliente TCP com Python veja o link [TCP conection exemple](https://pymotw.com/3/socket/tcp.html)
 
 Obs.: É isso, esses códigos serão estendidos (em novos arquivos, para não atrapalhar o versionamento) nas próximas seções, em que desenvolveremos um substituto para o Netcat e um Proxy TCP! Então borá lá!
+
+## Netcat
 
 ## Contributing
 Os comentários e os códigos foram retirados do livro: Black Hat Python de Justin Seitz publicado pela editora Novatec. Com algumas alterações quando aos comentários e ao código adaptado a versão 3.9 do Python

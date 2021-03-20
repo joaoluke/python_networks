@@ -3,6 +3,7 @@
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 
+
 <br />
 <p align="center">
   <a href="https://github.com/othneildrew/Best-README-Template">
@@ -23,7 +24,7 @@
 </p>
 
 <details open="open">
-  <summary>Sumario</summary>
+  <summary>Sumário</summary>
   <ol>
     <li>
       <a href="#o-projeto">Sobre o projeto</a>
@@ -68,6 +69,8 @@ Minhas dicas são: pratique cada tema muito, veja bem os exemplos e as referenci
 - Python3 instalado em sua máquina (de preferência ser padrão no sistema todo)
 - WingIDE (opcional, sugestão do livro)
 - Conhecimento básico em redes de computadores (saber como funciona os protocolos podem lhe ajudar muito nessa demo)
+
+Obs.: Coloquei alguns links bacana no Reconhecimento no final do arquivo com alguns conteudo bacana de Redes, comando linux, instalação do PyCharm...
 
 ### Instalações
 
@@ -178,6 +181,10 @@ João Lucas
 
 * [ProgrammerSought](https://www.programmersought.com/)
 * [HOWTO sobre a Programação de Soquetes](https://docs.python.org/pt-br/3/howto/sockets.html)
+* [Instalação do Pycharm](http://pythonclub.com.br/instalando-pycharm-ubuntu.html)
+* [Kali-Linux em Virtual Box](https://www.kali.org/docs/virtualization/install-virtualbox-guest-vm/)
+* [Comandos Linux](https://www.linuxpro.com.br/dl/guia_500_comandos_Linux.pdf)
+* [Guia Básico de Redes](https://www.algosobre.com.br/informatica/redes-de-computadores-nocoes-basicas.html)
 
 [contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
 [contributors-url]: https://github.com/joaoluke/python_networks/graphs/contributors

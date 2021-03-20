@@ -1,5 +1,34 @@
 # python_networks
 
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![MIT License][license-shield]][license-url]
+[![LinkedIn][linkedin-shield]][linkedin-url]
+
+<br />
+<p align="center">
+  <a href="https://github.com/othneildrew/Best-README-Template">
+    <img src="images/logo.png" alt="Logo" width="80" height="80">
+  </a>
+
+  <h3 align="center">Best-README-Template</h3>
+
+  <p align="center">
+    An awesome README template to jumpstart your projects!
+    <br />
+    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
+    <br />
+    <br />
+    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
+    ·
+    <a href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
+  </p>
+</p>
+
 <details open="open">
   <summary>Sumario</summary>
   <ol>
@@ -19,8 +48,10 @@
     <li><a href="#client-tcp">Cliente TCP</a></li>
     <li><a href="#client-udp">Cliente UDP</a></li>
     <li><a href="#server-tcp">Server TCP</a></li>
+    <li><a href="#netcat">Substituindo o Netcat</a></li>
     <li><a href="#contributing">Contribuição</a></li>
-    <li><a href="#contact">Contato</a></li>
+    <li><a href="#contato">Contato</a></li>
+    <li><a href="#reconhecimentos">Reconhecimentos</a></li>
   </ol>
 </details>
 
@@ -70,10 +101,12 @@ Para mais informações sobre a conexão entre servidor TCP e cliente TCP com Py
 
 Obs.: É isso, esses códigos serão estendidos (em novos arquivos, para não atrapalhar o versionamento) nas próximas seções, em que desenvolveremos um substituto para o Netcat e um Proxy TCP! Então borá lá!
 
+## Netcat
+ 
 ## Contributing
 Os comentários e os códigos foram retirados do livro: Black Hat Python de Justin Seitz publicado pela editora Novatec. Com algumas alterações quando aos comentários e ao código adaptado a versão 3.9 do Python
 
-## Contact
+## Contato
 
 Me mande uma mensagem caso tenha duvidas
 
@@ -82,3 +115,22 @@ João Lucas
 [@Instagram](https://www.instagram.com/joaolucas.deoliveira56/) - joaolucas.deoliveira56
 
 [@Linkedin](https://www.linkedin.com/in/joaolucasdeoliveira56/) - joaolucasdeoliveira56/
+
+## Reconhecimentos
+
+* [ProgrammerSought](https://www.programmersought.com/)
+* [HOWTO sobre a Programação de Soquetes](https://docs.python.org/pt-br/3/howto/sockets.html)
+
+[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
+[contributors-url]: https://github.com/othneildrew/Best-README-Template/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
+[forks-url]: https://github.com/othneildrew/Best-README-Template/network/members
+[stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=for-the-badge
+[stars-url]: https://github.com/othneildrew/Best-README-Template/stargazers
+[issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
+[issues-url]: https://github.com/othneildrew/Best-README-Template/issues
+[license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
+[license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+[linkedin-url]: https://linkedin.com/in/othneildrew
+[product-screenshot]: images/screenshot.png

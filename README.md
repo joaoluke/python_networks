@@ -69,7 +69,7 @@ Eis um servidor TCP multithreaded padrão:
 Para mais informações sobre a conexão entre servidor TCP e cliente TCP com Python veja o link [TCP conection exemple](https://pymotw.com/3/socket/tcp.html)
 
 ## Contributing
-Os comentários e os códigos foram retirados do livro: Black Hat Python de Justin Seitz publicado pela editora Novatas. Com algumas alterações quando aos comentários e ao código adaptado a versão 3.9 do Python
+Os comentários e os códigos foram retirados do livro: Black Hat Python de Justin Seitz publicado pela editora Novatec. Com algumas alterações quando aos comentários e ao código adaptado a versão 3.9 do Python
 
 ## Contact
 

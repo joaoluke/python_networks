@@ -2,7 +2,6 @@
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
 <br />
@@ -14,16 +13,13 @@
   <h1 align="center">Python Networks</h1>
 
   <p align="center">
-    An awesome README template to jumpstart your projects!
-    <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
+    Programação em Redes Python para dev's, hackers e pentesters.
     <br />
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
+    <a href="https://github.com/joaoluke/python_networks/issues">Reportar Bug</a>
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
+    <a href="https://github.com/joaoluke/python_networks/issues">Solicitar Recurso</a>
   </p>
 </p>
 
@@ -31,16 +27,13 @@
   <summary>Sumario</summary>
   <ol>
     <li>
-      <a href="#about-the-project">Sobre o projeto</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
+      <a href="#o-projeto">Sobre o projeto</a>
     </li>
     <li>
       <a href="#getting-started">Questões Iniciais</a>
       <ul>
         <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
+        <li><a href="#installation">Instalações</a></li>
       </ul>
     </li>
     <li><a href="#client-tcp">Cliente TCP</a></li>
@@ -52,6 +45,74 @@
     <li><a href="#reconhecimentos">Reconhecimentos</a></li>
   </ol>
 </details>
+
+## O Projeto
+
+Python é a linguagem "queridinha", para os amantes de cibersegurança, e como vamos explorar o conteúdo de um dos maiores best-sellers do assunto (**Black Hat Python**) vamos aprender a fundo sobres as tecnologias e até mesmo construir nossas próprias ferramentas para pentest com Python!
+
+Vamos aprender sobre o capítulo 2 de Black Hat onde se aborda temas de rede, vamos aprender fazer nosso próprio cliente TCP, UDP, server TCP, vamos fazer um substituto do Netcat, um Proxy, tutelamento SSH... (vamos deixar de ser apenas um "script kiddies"). Então senta confortavelmente e vamos ao haking!
+
+Se você ama programação, ama Python, ama cibersegurança esse conteúdo é para você! Fiz com todo carinho para você <3.
+
+## Questões Iniciais
+
+Vamos dar inicio a preparação do ambiente para programarmos, para inicio tenha um computador com acesso a internet, um editor de texto ou IDE (meu conselho é usar o PyCharm versão gratuita), o livro pede para que você instale o Kali Linux em um VM, mas pode ser em qualquer maquina Linux ou até mesmo MacOS, se precisarmos de algum tipo de instalação de pacote vou citar em cada capitulo, fique tranquilo!
+
+Minhas dicas são: pratique cada tema muito, veja bem os exemplos e as referencias externas que irei colocar em cada assunto, busque informações do tema discutido pela internet, se caso tiver alguma duvida específica pode-me mandar por contato ou por no StackOverflow, espero que você tenha curiosidade e comprometimento para absolver cada tópico a fundo, se a principio um exemplo parecer muito difícil, calma e olhe com cuida e sem pressa, pois eu vou comentar cada tópico passo a passo.
+
+### Pré-requisitos
+
+- Maquina Linux (seja VM ou instalada no HD)
+- Conhecimento prévio em Python (não vou entrar em detalhes da sintaxe e sim das funcionalidades, então é bom você ter um conhecimento intermediário de lógica de programação e de Python)
+- Kali-Linux (opcional)
+- Conhecimento de comandos linux
+- Python3 instalado em sua máquina (de preferência ser padrão no sistema todo)
+- WingIDE (opcional, sugestão do livro)
+- Conhecimento básico em redes de computadores (saber como funciona os protocolos podem lhe ajudar muito nessa demo)
+
+### Instalações
+
+Para instalar o `pip` pra podermos instalar algumas ferramentas que vamos usar use o seguinte comando:
+
+```cmd
+sudo apt-get install python-setuptools python-pip
+```
+
+Para instalar o Python 3 primeiro verifique se tem alguma versão do Python instalada em sua maquina com o comando:
+
+```cmd
+$ which python
+```
+
+ou
+
+```cmd
+$ which python3
+```
+
+que deve retornar algo como `/usr/bin/python`. Isso significa que o Python está instalado nesse endereço.
+
+Para instala-lo com apt-get:
+
+```cmd
+$ sudo apt-get install python3
+```
+
+```cmd
+$ sudo apt-get install python3-pip
+```
+
+Para instalar o WingIDE use o comando:
+
+```cmd
+$ sudo dpkg -i wingide5_5.0.9-1_i386.deb
+```
+
+e
+
+```cmd
+$ sudo apt-get -f install
+```
 
 ## Client TCP
 
@@ -122,13 +183,11 @@ João Lucas
 [contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
 [contributors-url]: https://github.com/joaoluke/python_networks/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
-[forks-url]: https://github.com/othneildrew/Best-README-Template/network/members
+[forks-url]: https://github.com/joaoluke/python_networks/network/members
 [stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=for-the-badge
-[stars-url]: https://github.com/othneildrew/Best-README-Template/stargazers
+[stars-url]: https://github.com/joaoluke/python_networks/stargazers
 [issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
 [issues-url]: https://github.com/othneildrew/Best-README-Template/issues
-[license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
-[license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/othneildrew
 [product-screenshot]: images/screenshot.png

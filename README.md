@@ -13,7 +13,7 @@
   <h1 align="center">Python Networks</h1>
 
   <p align="center">
-    Programação em Redes Python para dev's, hackers e pentesters.
+    Programação Python em Redes para dev's, hackers e pentesters.
     <br />
     <br />
     ·
@@ -50,7 +50,7 @@
 
 Python é a linguagem "queridinha", para os amantes de cibersegurança, e como vamos explorar o conteúdo de um dos maiores best-sellers do assunto (**Black Hat Python**) vamos aprender a fundo sobres as tecnologias e até mesmo construir nossas próprias ferramentas para pentest com Python!
 
-Vamos aprender sobre o capítulo 2 de Black Hat onde se aborda temas de rede, vamos aprender fazer nosso próprio cliente TCP, UDP, server TCP, vamos fazer um substituto do Netcat, um Proxy, tutelamento SSH... (vamos deixar de ser apenas um "script kiddies"). Então senta confortavelmente e vamos ao haking!
+Vamos aprender sobre o capítulo 2, 3 e 4 de Black Hat onde se aborda temas de rede, vamos aprender fazer nosso próprio cliente TCP, UDP, server TCP, vamos fazer um substituto do Netcat, um Proxy, tutelamento SSH, Decodificando a camada IP, Roubando credenciais de emails, Sniffing e muito mais (vamos deixar de ser apenas um "script kiddies"). Então senta confortavelmente e vamos ao haking!
 
 Se você ama programação, ama Python, ama cibersegurança esse conteúdo é para você! Fiz com todo carinho para você <3.
 

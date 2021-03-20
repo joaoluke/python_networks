@@ -28,5 +28,19 @@ Obs.: como o protocolo UDP não é orientado a conexão, não há nenhuma chamad
 
 Para mais informações sobre a conexão UDP com Python veja o link [UDP exemple](https://pythontic.com/modules/socket/udp-client-server-example)
 
+## Server_TCP
+
+Criar um servidor TCP é tão simples quando criar um cliente, porém é necessário atenção para configurar seu server ao seu client, talvez pode dar erros de conexão, pois você pode estar tentando fazer essa conexão em portas reservadas. Preste atenção!
+
+Eis um servidor TCP multithreaded padrão:
+
+- No começo fazemos o que já estamos acostumados a fazer com o `bind()` passando o endereço IP e a porta que queremos que o servidor fique ouvindo.
+- Depois com o `server.listen(1)` dizemos ao servidor para começar a ouvir com o máximo de conexões definidas em 1 (opção minha, você pode por quantas você quiser)
+- Então com a função `handle_client()` o servidor entra em seu laço principal, em que aguarda uma conexão de entrada.
+- Quando o cliente se conecta, recebemos o socket do cliente na variável `client`e os detalhes da conexão remota remota numa variável em `addr` em `client, addr = server.accept()`
+- Em seguida criamos um novo objeto thread que aponta para nossa função `handle_client()` e passamos o objeto socket referente ao cliente como argumento `client`
+- Iniciamos a thread para que cuide da conexão com o cliente e o laço principal do nosso servidor estará pronto para cuidar de outra conexão de entrada em `client_handler.start()`
+- A função `client_handler()` executa `recv()` e, em seguida, envia uma mensagem simples ao cliente "ARK!"
+
 ## Contributing
 Os comentários e os códigos foram retirados do livro: Black Hat Python de Justin Seitz publicado pela editora Novatas. Com algumas alterações quando aos comentários e ao código adaptado a versão 3.9 do Python

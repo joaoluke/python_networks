@@ -18,9 +18,9 @@
     </li>
     <li><a href="#client-tcp">Cliente TCP</a></li>
     <li><a href="#client-udp">Cliente UDP</a></li>
-    <li><a href="#server-tcp">Contributing</a></li>
-    <li><a href="#contributing">License</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#server-tcp">Server TCP</a></li>
+    <li><a href="#contributing">Contribuição</a></li>
+    <li><a href="#contact">Contato</a></li>
   </ol>
 </details>
 

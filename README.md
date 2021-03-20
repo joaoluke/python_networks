@@ -1,6 +1,30 @@
 # python_networks
 
-## Client_TCP
+<details open="open">
+  <summary>Sumario</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">Sobre o projeto</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Questões Iniciais</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#installation">Installation</a></li>
+      </ul>
+    </li>
+    <li><a href="#client-tcp">Cliente TCP</a></li>
+    <li><a href="#client-udp">Cliente UDP</a></li>
+    <li><a href="#server-tcp">Contributing</a></li>
+    <li><a href="#contributing">License</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ol>
+</details>
+
+## Client TCP
 
 Para enviar alguns dados lixos afim de testar, fazer fuzzing ou qualquer outra tarefa, devemos ter um Cliente TCP de um forma simples
 
@@ -12,7 +36,7 @@ Para enviar alguns dados lixos afim de testar, fazer fuzzing ou qualquer outra t
 
 Obs.: fazendo algumas suposições sérias sobres os sockets em relação aos quais você deveria estar ciente. A primeira suposição é que nossa conexão sempre terá sucesso e a segunda é que o servidor sempre estará esperando que lhe enviemos dados antes (em oposição aos servidores que esperam enviar dados a você antes e esperam a sua resposta), a terceira suposição é de que o servidor sempre enviará dados de volta imediatamente.
 
-## Client_UDP
+## Client UDP
 
 Não sendo muito diferente do client TCP, fazemos apenas quatro pequenas alterações para que os pacotes sejam enviados em formato UDP:
 
@@ -28,7 +52,7 @@ Obs.: como o protocolo UDP não é orientado a conexão, não há nenhuma chamad
 
 Para mais informações sobre a conexão UDP com Python veja o link [UDP exemple](https://pythontic.com/modules/socket/udp-client-server-example)
 
-## Server_TCP
+## Server TCP
 
 Criar um servidor TCP é tão simples quando criar um cliente, porém é necessário atenção para configurar seu server ao seu client, talvez pode dar erros de conexão, pois você pode estar tentando fazer essa conexão em portas reservadas. Preste atenção!
 
@@ -46,3 +70,12 @@ Para mais informações sobre a conexão entre servidor TCP e cliente TCP com Py
 
 ## Contributing
 Os comentários e os códigos foram retirados do livro: Black Hat Python de Justin Seitz publicado pela editora Novatas. Com algumas alterações quando aos comentários e ao código adaptado a versão 3.9 do Python
+
+## Contact
+
+Me mande uma mensagem caso tenha duvidas
+
+João Lucas
+[@meu insta](https://www.instagram.com/joaolucas.deoliveira56/) - joaolucas.deoliveira56
+
+[@meu linkedin](https://www.linkedin.com/in/joaolucasdeoliveira56/)

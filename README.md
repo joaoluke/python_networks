@@ -24,7 +24,9 @@ client = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 - E o `sendto()` passamos os dados e o servidor para qual voce deseja enviar os dados.
 - O ultimo passo consiste em chamar o `recvfrom()`para receber de volta os dados UDP.
 
-Obs.: como o protocolo UDP não é orientado a conexão, não há nenhuma chamda anterior a `connect()`. Voce Irá observar que quanto os dados quanto os detalhes sobre o host remoto e a porta são recebiddos, juntamente com a mensagem UDP que no nosso caso 
+Obs.: como o protocolo UDP não é orientado a conexão, não há nenhuma chamada anterior a `connect()`. Você Irá observar que quanto os dados quanto os detalhes sobre o host remoto e a porta são recebidos, juntamente com a mensagem UDP que no nosso caso foi `Hello, server UDP`.
+
+Para mais informações sobre a conexão UDP com Python veja o link [UDP exemple](https://pythontic.com/modules/socket/udp-client-server-example)
 
 ## Contributing
 Os comentários e os códigos foram retirados do livro: Black Hat Python de Justin Seitz publicado pela editora Novatas. Com algumas alterações quando aos comentários e ao código adaptado a versão 3.9 do Python

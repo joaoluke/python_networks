@@ -21,7 +21,8 @@
     <li><a href="#server-tcp">Server TCP</a></li>
     <li><a href="#netcat">Substituindo o Netcat</a></li>
     <li><a href="#contributing">Contribuição</a></li>
-    <li><a href="#contact">Contato</a></li>
+    <li><a href="#contato">Contato</a></li>
+    <li><a href="#reconhecimentos">Reconhecimentos</a></li>
   </ol>
 </details>
 
@@ -72,11 +73,11 @@ Para mais informações sobre a conexão entre servidor TCP e cliente TCP com Py
 Obs.: É isso, esses códigos serão estendidos (em novos arquivos, para não atrapalhar o versionamento) nas próximas seções, em que desenvolveremos um substituto para o Netcat e um Proxy TCP! Então borá lá!
 
 ## Netcat
-
+ 
 ## Contributing
 Os comentários e os códigos foram retirados do livro: Black Hat Python de Justin Seitz publicado pela editora Novatec. Com algumas alterações quando aos comentários e ao código adaptado a versão 3.9 do Python
 
-## Contact
+## Contato
 
 Me mande uma mensagem caso tenha duvidas
 
@@ -85,3 +86,8 @@ João Lucas
 [@Instagram](https://www.instagram.com/joaolucas.deoliveira56/) - joaolucas.deoliveira56
 
 [@Linkedin](https://www.linkedin.com/in/joaolucasdeoliveira56/) - joaolucasdeoliveira56/
+
+## Reconhecimentos
+
+* [ProgrammerSought](https://www.programmersought.com/)
+* [HOWTO sobre a Programação de Soquetes](https://docs.python.org/pt-br/3/howto/sockets.html)

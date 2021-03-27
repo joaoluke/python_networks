@@ -2,7 +2,9 @@
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
-
+<img alt="Python" src="https://img.shields.io/badge/python%20-%2314354C.svg?&style=for-the-badge&logo=python&logoColor=white"/>
+<img alt="GitHub" src="https://img.shields.io/badge/github%20-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/>
+[![Licence](https://img.shields.io/github/license/Ileriayo/markdown-badges?style=for-the-badge)](./LICENSE)
 
 <br />
 <p align="center">
@@ -163,6 +165,18 @@ Para mais informações sobre a conexão entre servidor TCP e cliente TCP com Py
 Obs.: É isso, esses códigos serão estendidos (em novos arquivos, para não atrapalhar o versionamento) nas próximas seções, em que desenvolveremos um substituto para o Netcat e um Proxy TCP! Então borá lá!
 
 ## Netcat
+
+Chegou a hora de criarmos o nosso próprio canivete suíço das redes: O NETCAT. Muitas das vezes os administradores de rede "espertinhos" removem ele do sistema, mas o python está presente nos servidores.
+
+Então para estes caso é muito útil criar um cliente e servidor simples para rede que possam ser usados para enviar arquivos ou ter um listener (processo que verifica se há solicitações de conexão) que possibilite o acesso
+
+Se você invadiu um sistema web, certamente deveria deixar uma callback Python para ter acesso secundário antes de lançar mão do uso de um de seus cavalos de Tróia ou de suas backdoors (portas dos fundos).
+
+Então vamos começar com nosso Netcat: Calma! O arquivo é grande, eu sei! Mas vamos por partes, vou começar explicando desde o começo:
+
+- Primeiro faço algumas importações
+- Depois defino algumas variáveis globais.
+- Ai cria a função principal `def usage():`, ela será responsável pelo tratamento dos argumentos da linha de comando pela chamada do restante das funções.
  
 ## Contributing
 Os comentários e os códigos foram retirados do livro: Black Hat Python de Justin Seitz publicado pela editora Novatec. Com algumas alterações quando aos comentários e ao código adaptado a versão 3.9 do Python

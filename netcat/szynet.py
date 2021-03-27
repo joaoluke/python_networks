@@ -15,7 +15,7 @@ logging.basicConfig(level=logging.DEBUG,
                     # filename='myapp.log',
                     filemode='a')
 
-# define some global variables
+# Define variáveis globais
 listen = False
 command = False
 upload = False
@@ -26,11 +26,10 @@ port = 0
 
 
 def run_command(command):
-    """
-    execute the shell command, or file received from client.
-    :param command: 
-    :return: output: shell command result. 
-    """
+    # execute o comando shell ou o arquivo recebido do cliente.
+    # : comando param:
+    # : return: output: resultado do comando shell.
+    
     # trim the newline.(delete the characters of the string end.)
     command = command.rstrip()
 
@@ -199,10 +198,10 @@ def client_sender(buffer):
 
 def usage():
     """
-    print the info of help
+    imprima informações de ajuda
     :return: 
     """
-    print("Usage: netcat.py -t target_host -p port")
+    print("Usage: szynet.py -t target_host -p port")
     print("\t-l --listen                - listen on [host]:[port] for incoming connections")
     print("\t-e --execute=file_to_run   - execute the given file upon receiving a connection")
     print("\t-c --command               - initialize a command shell")
@@ -216,11 +215,10 @@ def usage():
 
 
 def main():
-    """
-    parse shell option and parameters, and set the vars.
-    call listen function or connect function.
-    :return: 
-    """
+    # passe a opção e os parâmetros do shell e defina as variáveis.
+    # chame a função de escuta ou a função de conexão.
+    # :return: 
+    
     global listen
     global port
     global execute
@@ -231,7 +229,7 @@ def main():
     if not len(sys.argv[1:]):
         usage()
 
-    # read the commandline options
+    # Lê as linhas de comando
     try:
         opts, args = getopt.getopt(sys.argv[1:], "hle:t:p:cu:",
                                    ["help", "listen", "execute=", "target=", "port=", "command", "upload="])
@@ -258,20 +256,20 @@ def main():
             assert False, "Unhandled Option"
             usage()
 
-    # are we going to listen or just send data from stdin
+    # Iremos ouvir ou simplesmente enviar dados stdin?
     if not listen and len(target) and port > 0:
-        # read in the buffer from the commandline
-        # this will block, so send CTRL-D if not sending input to stdin
-        # Windows is Ctrl-Z
-        # buffer = sys.stdin.read()
+        # Lê o buffer da linha de comando
+        # isso causará um bloqueio, portando envie um CTRL-D se não estiver
+        # enviando dados de entrada stdin
+        # Windows é Ctrl-Z
         buffer = sys.stdin.read()
 
         # send data off
         client_sender(buffer)
 
-    # we are going to listen and potentially
-    # upload things, execute commands and drop a shell back
-    # depending on our command line options above
+    # Iremos ouvir a porta e, potencialmente,
+    # faremos upload de dados, executaremos comandos e deixaremos um shell
+    # de acordo com as opções de linha de comando anteriores
     if listen:
         server_loop()
 

@@ -142,26 +142,25 @@ def server_loop():
 
 
 def client_sender(buffer):
-    """
-    the client send datas to the server, and receive datas from server.
-    :param buffer: datas from the stdin
-    :return: 
-    """
+    # O cliente envia dados para o servidor e recebe dados do servidor.
+    # : param buffer: dados do stdin
+    # : retorn:
+    
     client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
     try:
-        # conncet to target
+        # Conecta ao nosso host-alvo
         client.connect((target, port))
         logging.debug('server is %s:%d' % (target, port))
 
-        # if we detect input from stdin then send the datas.
-        # if not we are going to wait for the user to input.
+        # Se detectarmos a entrada de stdin, enviaremos os dados.
+        # Se não, vamos esperar a entrada do usuário.
         if len(buffer):
-            # send the datas with utf-8 endecode.
+            # Agora espera receber dados de volta (encriptados).
             client.send(buffer.encode("utf-8"))
 
         while True:
-            # now wait for datas back
+            # Agora espere pelos dados de volta
             recv_len = 1
             response = ""
 
@@ -180,27 +179,24 @@ def client_sender(buffer):
 
             print(response + " ")
 
-            # wait for more input
-            # Python2 is raw_input(), and Python3 is input()
+            # Espera mais dados de entrada
             buffer = input("")
             buffer += "\n"
 
             client.send(buffer.encode("utf-8"))
-            # logging.info("send datas: %s" % buffer)
 
     except Exception as e:
         logging.error(e)
 
     finally:
-        # teardown the connection
+        # Encerra a conexão
         client.close()
 
 
 def usage():
-    """
-    imprima informações de ajuda
-    :return: 
-    """
+    # imprima informações de ajuda
+    # :return: 
+    
     print("Usage: szynet.py -t target_host -p port")
     print("\t-l --listen                - listen on [host]:[port] for incoming connections")
     print("\t-e --execute=file_to_run   - execute the given file upon receiving a connection")

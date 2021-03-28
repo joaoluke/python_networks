@@ -42,6 +42,7 @@
     <li><a href="#client-udp">Cliente UDP</a></li>
     <li><a href="#server-tcp">Server TCP</a></li>
     <li><a href="#netcat">Substituindo o Netcat</a></li>
+    <li><a href="#proxy-tcp">Criando um Proxy TCP</a></li>
     <li><a href="#contributing">Contribuição</a></li>
     <li><a href="#contato">Contato</a></li>
     <li><a href="#reconhecimentos">Reconhecimentos</a></li>
@@ -225,6 +226,38 @@ Bom a essa altura do campeonato você já deve estar bem familiarizado em criar 
 data = client_socket.recv(1024)`) para garantir que recebemos tudo.
 - Depois, processamos nossa funcionalidade de execução, que chamamos nossa função `run_command()` e simplesmente envia o resultado de volta pela rede.
 - Por fim de tudo temos o código que cuida de nosso shell de comandos, ele contínua a executar comandos à medida que os enviamos e a saída é mantida de volta.
+
+### Testando
+
+Em um terminal ou no shell cmd.exe, execute nosso script da seguinte maneira:
+
+`kali-linux$ ./szynet.py -l -p 9999 -c`
+
+Você pode em outro terminal ou cmd.exe e executar nosso script como cliente (igual fizemos com o server e cliente TCP). Lembre-se de que nosso script está lendo de stdin e fará isso até receber o marcador EOF (end-of-file). Para isso, precione CTRL + D em seu teclado:
+
+`kali-linux$ ./szynet.py -l -p 9999 -c`
+
+`<CTRL_D>`
+
+`<BHP:#> ls -la`
+
+`drwxr-xr-x 4 kali-linux staff 136 18 Dec 19:45 .`
+
+`drwxr-xr-x 4 kali-linux staff 136 9 Dec 17:34 ..`
+
+`-rwxrwxrwx 1 kali-linux staff 8498 19 Dec 06:14 szynet.py`
+
+`-rw-r--r-- 1 kali-linux staff 844 10 Dec 10:45 listing-1-3.py`
+
+`<BHP:#> pwd`
+
+`/home/kali-linux/scripts/netcat`
+
+Obs.: Você vai notar que o código as funções não estão na ordem dos comentários isso por que fiz o comentário de acordo com a importância e o processo que execução do script.
+
+Meus parabéns você chegou ao fim de uma etapa bem difícil espero que tenha entendido o que fizemos e esteja ainda com vontade de aprender mais, pois isso foi só o começo, estamos só aquecendo por enquanto. Agora vamos criar um PROXY TCP que vamos usar em vários cenários de ataque.
+
+## Proxy TCP
 
 ## Contributing
 Os comentários e os códigos foram retirados do livro: Black Hat Python de Justin Seitz publicado pela editora Novatec. Com algumas alterações quando aos comentários e ao código adaptado a versão 3.9 do Python

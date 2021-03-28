@@ -253,6 +253,8 @@ Meus parabéns você chegou ao fim de uma etapa bem difícil espero que tenha en
 
 ## Proxy TCP
 
+Os motivos para se ter um proxy em sua caixa de ferramentas são inúmeros, podemos usar para encaminhar trafego a ser enviado de host, seja para avaliar softwares baseados em rede. Ao realizar testes de invasão em ambientes corporativos, você comumente se deparará com o fato de não puder executar o Wireshark, não poder carregar drivers para fazer sniffing no loopback do Windows... Então vamos criar nosso próprio proxy TCP!
+
 ## Contribuição
 Os comentários e os códigos foram retirados do livro: Black Hat Python de Justin Seitz publicado pela editora Novatec. Com algumas alterações quando aos comentários e ao código adaptado a versão 3.9 do Python
 

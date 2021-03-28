@@ -259,7 +259,7 @@ Meus parabéns você chegou ao fim de uma etapa bem difícil espero que tenha en
 
 ## Proxy TCP
 
-## Contributing
+## Contribuição
 Os comentários e os códigos foram retirados do livro: Black Hat Python de Justin Seitz publicado pela editora Novatec. Com algumas alterações quando aos comentários e ao código adaptado a versão 3.9 do Python
 
 ## Contato

@@ -233,7 +233,7 @@ Em um terminal ou no shell cmd.exe, execute nosso script da seguinte maneira:
 
 `kali-linux$ ./szynet.py -l -p 9999 -c`
 
-Você pode em outro terminal ou cmd.exe e executar nosso script como cliente (igual fizemos com o server e cliente TCP). Lembre-se de que nosso script está lendo de stdin e fará isso até receber o marcador EOF (end-of-file). Para isso, precione CTRL + D em seu teclado:
+Você pode ir em outro terminal ou cmd.exe e executar nosso script como cliente (igual fizemos com o server e cliente TCP). Lembre-se de que nosso script está lendo de stdin e fará isso até receber o marcador EOF (end-of-file). Para isso, precione CTRL + D em seu teclado:
 
 ```cmd
 kali-linux$ ./szynet.py -l -p 9999 -c

@@ -172,12 +172,60 @@ Então para estes caso é muito útil criar um cliente e servidor simples para r
 
 Se você invadiu um sistema web, certamente deveria deixar uma callback Python para ter acesso secundário antes de lançar mão do uso de um de seus cavalos de Tróia ou de suas backdoors (portas dos fundos).
 
-Então vamos começar com nosso Netcat: Calma! O arquivo é grande, eu sei! Mas vamos por partes, vou começar explicando desde o começo:
+1 - Então vamos começar com nosso Netcat: Calma! O arquivo é grande, eu sei! Mas vamos por partes, vou começar explicando desde o começo:
 
 - Primeiro faço algumas importações
 - Depois defino algumas variáveis globais.
 - Ai cria a função principal `def usage():`, ela será responsável pelo tratamento dos argumentos da linha de comando pela chamada do restante das funções.
- 
+
+Começando lendo todas as opções de linha de comando:
+
+``` python
+try:
+opts, args = getopt.getopt(sys.argv[1:], "hle:t:p:cu:",
+["help", "listen", "execute=", "target=", "port=", "command", "upload="])
+except getopt.GetoptError as err:
+logging.error("%s", err)
+usage()
+```
+e definindo as variáveis necessárias de acordo com as opções detectadas. E se alguma informação de comando não atender nossos critérios, vamos exibir informações sobre como usar o script de acordo com nossa função `usage()`.
+E aqui tentamos imitar o netcat e enviar dados de stdin pela rede:
+```python
+f not listen and len(target) and port > 0:
+buffer = sys.stdin.read()
+
+client_sender(buffer)
+```
+E por fim detectamos que é necessário configurar um socket para ouvir a rede e processamos comandos adicionais: `server_loop()` onde carregamos um arquivo, executamos um comando, iniciamos um schell de comandos.
+
+2 - A partir de agora vamos falar da segunda parte do nosso script `def client_sender():`, já estou achando que você está se familiarizando com tudo isso.
+
+- Começamos a criar nosso objeto socket TCP e depois testamos ele.
+- Depois o testamos para saber se recebemos algum dado de entrada de stdin.
+```python
+if len(buffer):
+client.send(buffer)
+while True:
+...
+```
+- Se tudo estiver ok, enviaremos os dados remotamente e receberemos dados de volta (`while recv_len:`)
+- Então preparamos mais dados de entrada (`buffer = input('')`) do usuário e continuaremos a enviar e receber dados até o usuário encerrar nosso script.
+
+3 - Agora vamos criar o laço principal do nosso servidor, além de uma função stub que cuidará tanto da execução do nosso comando quanto do nosso shell de comandos completo.
+
+Bom a essa altura do campeonato você já deve estar bem familiarizado em criar um servidor TCP completo com threading, então não vamos entrar em detalhes da nossa função `server_loop():`
+
+- Algo que tem na função `run_command():` que ainda não falamos sobre é a subprocess, que é uma biblioteca que provê uma interface eficaz para criar processos, proporcionando diversas maneiras de iniciar e interagir com programas clientes.
+- Aqui `output = subprocess.check_output(command, stderr=subprocess.STDOUT, shell=True)` simplesmente executamos qualquer comando que seja passado, executando no sistema operacional e retornando a saída do comando ao cliente que se conectou a nós.
+
+4 - Por fim vamos implementar a lógica para fazer upload de arquivos, executar comando e implementar o nosso shell: `client_handler():`
+
+- Nessa primeira porção de código (`if len(upload_destination):`) é responsável por determinar se nossa ferramenta de rede está configurada para receber um arquivo quando uma conexão for estabelecida.
+- Inicialmente, recebemos os dados de arquivo em um laço (`while True:
+data = client_socket.recv(1024)`) para garantir que recebemos tudo.
+- Depois, processamos nossa funcionalidade de execução, que chamamos nossa função `run_command()` e simplesmente envia o resultado de volta pela rede.
+- Por fim de tudo temos o código que cuida de nosso shell de comandos, ele contínua a executar comandos à medida que os enviamos e a saída é mantida de volta.
+
 ## Contributing
 Os comentários e os códigos foram retirados do livro: Black Hat Python de Justin Seitz publicado pela editora Novatec. Com algumas alterações quando aos comentários e ao código adaptado a versão 3.9 do Python
 

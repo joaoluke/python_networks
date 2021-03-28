@@ -25,58 +25,37 @@ upload_destination = ""
 port = 0
 
 
-def run_command(command):
-    # execute o comando shell ou o arquivo recebido do cliente.
-    # : comando param:
-    # : return: output: resultado do comando shell.
-    
-    # trim the newline.(delete the characters of the string end.)
-    command = command.rstrip()
-
-    # run the command and get the output back
-    try:
-        # run command with arguments and return its output.
-        output = subprocess.check_output(command, stderr=subprocess.STDOUT, shell=True)
-        logging.debug(output)
-    except Exception as e:
-        logging.error(e)
-        output = b"Failed to execute command.\r\n"
-
-    # send the output back to the client
-    return output
-
-
 def client_handler(client_socket):
-    """
-    the thread function of handling the client. 
-    :param client_socket: 
-    :return: 
-    """
+    # A função thread de lidar com o cliente.
+    # :param client_socket: 
+    # :return: 
+    
     global upload
     global execute
     global command
 
-    # upload file
+    # Verifica se é upload
     if len(upload_destination):
-        # read in all of the bytes and write to our destination
+        # Lê todos os bytes e grava em nosso destino
         file_buffer = ""
-        # keep reading data until none is available
+        # Permanece lendo os dados até que não haja mais nenhum disponível
         while True:
             data = client_socket.recv(1024)
             file_buffer += data.decode("utf-8")
             logging.debug(data)
 
-            # "#EOF#" tell the server, file is end.
+            # "#EOF#" diz ao servidor que o arquivo está finalizado.
             if "#EOF#" in file_buffer:
                 file_buffer = file_buffer[:-6]
                 break
-            # for interaciton, like heart packet.
+           
             client_socket.send(b"#")
 
-        # now we take these bytes and try to write them out
+        # Agora teremos de gravas esses byteshj vb9k
         try:
             with open(upload_destination, "wb") as fw:
                 fw.write(file_buffer.encode("utf-8"))
+            # Confirma que gravamos o arquivo
             client_socket.send(b"save file successed.\n")
         except Exception as err:
             logging.error(err)
@@ -84,21 +63,21 @@ def client_handler(client_socket):
         finally:
             client_socket.close()
 
-    # execute the given file
+    # Verifica se é execução de comando
     if len(execute):
-        # run the command
+        # Executa o comando
         output = run_command(execute)
 
         client_socket.send(output)
 
-    # now we go into another loop if a command shell was requested
+    # Entra em outro laço se um shell de comandos foi solicitado
     if command:
-        # receive command from client, execute it, and send the result data.
+        # Recebe o comando do cliente, execute-o e envie os dados do resultado.
         try:
             while True:
-                # show a simple prompt
+                # Mostra um prompt simples
                 client_socket.send(b"<BHP:#>")
-                # now we receive until we see a linefeed (enter key)
+                # Agora ficamos recebendo dados até vermos um linefeed - (tecla ENTER)
                 cmd_buffer = ""
                 while "\n" not in cmd_buffer:
                     try:
@@ -107,9 +86,9 @@ def client_handler(client_socket):
                         logging.error(err)
                         client_socket.close()
                         break
-                # we have a valid command so execute it and send back the results
+                # Envia de volta a saída do comando
                 response = run_command(cmd_buffer)
-                # send back the response
+                # Envia de volta a resposta
                 client_socket.send(response)
         except Exception as err:
             logging.error(err)
@@ -117,14 +96,13 @@ def client_handler(client_socket):
 
 
 def server_loop():
-    """
-    the server listen. create a thread to handle client's connection.
-    :return: 
-    """
+    # O servidor escuta e crie um thread para lidar com a conexão do cliente.
+    # :return: 
+    
     global target
     global port
 
-    # if no target is defined we listen on all interfaces
+    # Se não houver nenhum alvo definido, ouviremos todas as interfaces
     if not len(target):
         target = "0.0.0.0"
 
@@ -136,10 +114,29 @@ def server_loop():
     while True:
         client_socket, addr = server.accept()
 
-        # spin off a thread to handle our new client
+        # Dispara uma thread para cuidar do nosso novo cliente
         client_thread = threading.Thread(target=client_handler, args=(client_socket,))
         client_thread.start()
 
+def run_command(command):
+    # execute o comando shell ou o arquivo recebido do cliente.
+    # : comando param:
+    # : return: output: resultado do comando shell.
+    
+    # Remove a quebra de linha
+    command = command.rstrip()
+
+    # Executa o comando e obtém os dados de saída
+    try:
+        # Execute o comando com argumentos e retorne sua saída.
+        output = subprocess.check_output(command, stderr=subprocess.STDOUT, shell=True)
+        logging.debug(output)
+    except Exception as e:
+        logging.error(e)
+        output = b"Failed to execute command.\r\n"
+
+    # Envia os dados de saída de volta ao cliente
+    return output
 
 def client_sender(buffer):
     # O cliente envia dados para o servidor e recebe dados do servidor.

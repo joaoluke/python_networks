@@ -267,7 +267,7 @@ Me mande uma mensagem caso tenha duvidas
  <br />
  <sub><b>João Lucas (Instagram)</b></sub></a> <a href="https://www.instagram.com/joaolucas.deoliveira56/" title="Instagram">🚀</a>
  <br />
-
+ 
 [![Linkedin Badge](https://img.shields.io/badge/-João-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/joaolucasdeoliveira56/)](https://www.linkedin.com/in/joaolucasdeoliveira56/) 
 [![Gmail Badge](https://img.shields.io/badge/-joao@wavecode.com.br-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:joao@wavecode.com.br)](mailto:joao@wavecode.com.br)
 

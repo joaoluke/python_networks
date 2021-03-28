@@ -262,11 +262,14 @@ Os comentários e os códigos foram retirados do livro: Black Hat Python de Just
 
 Me mande uma mensagem caso tenha duvidas
 
-João Lucas
+<a href="https://blog.rocketseat.com.br/author/thiago/">
+ <img style="border-radius: 50%;" src="https://media-exp1.licdn.com/dms/image/C4D03AQEN1A5hAB0DQA/profile-displayphoto-shrink_800_800/0/1610428303703?e=1622678400&v=beta&t=gc7cbCpWwpml3zpcAaRGkrqFFo1MYEALaS3LD3dvaZI" width="100px;" alt=""/>
+ <br />
+ <sub><b>João Lucas (Instagram)</b></sub></a> <a href="https://www.instagram.com/joaolucas.deoliveira56/" title="Instagram">🚀</a>
+ <br />
 
-[@Instagram](https://www.instagram.com/joaolucas.deoliveira56/) - joaolucas.deoliveira56
-
-[@Linkedin](https://www.linkedin.com/in/joaolucasdeoliveira56/) - joaolucasdeoliveira56/
+[![Linkedin Badge](https://img.shields.io/badge/-João-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/joaolucasdeoliveira56/)](https://www.linkedin.com/in/joaolucasdeoliveira56/) 
+[![Gmail Badge](https://img.shields.io/badge/-joao@wavecode.com.br-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:joao@wavecode.com.br)](mailto:joao@wavecode.com.br)
 
 ## Reconhecimentos
 

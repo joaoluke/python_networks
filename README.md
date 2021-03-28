@@ -32,10 +32,10 @@
       <a href="#o-projeto">Sobre o projeto</a>
     </li>
     <li>
-      <a href="#getting-started">Questões Iniciais</a>
+      <a href="#questões-iniciais">Questões Iniciais</a>
       <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Instalações</a></li>
+        <li><a href="#pré-requisitos">Pré-requisitos</a></li>
+        <li><a href="#instalações">Instalações</a></li>
       </ul>
     </li>
     <li><a href="#client-tcp">Cliente TCP</a></li>
@@ -43,7 +43,7 @@
     <li><a href="#server-tcp">Server TCP</a></li>
     <li><a href="#netcat">Substituindo o Netcat</a></li>
     <li><a href="#proxy-tcp">Criando um Proxy TCP</a></li>
-    <li><a href="#contributing">Contribuição</a></li>
+    <li><a href="#contribuição">Contribuição</a></li>
     <li><a href="#contato">Contato</a></li>
     <li><a href="#reconhecimentos">Reconhecimentos</a></li>
   </ol>
@@ -235,23 +235,17 @@ Em um terminal ou no shell cmd.exe, execute nosso script da seguinte maneira:
 
 Você pode em outro terminal ou cmd.exe e executar nosso script como cliente (igual fizemos com o server e cliente TCP). Lembre-se de que nosso script está lendo de stdin e fará isso até receber o marcador EOF (end-of-file). Para isso, precione CTRL + D em seu teclado:
 
-`kali-linux$ ./szynet.py -l -p 9999 -c`
-
-`<CTRL_D>`
-
-`<BHP:#> ls -la`
-
-`drwxr-xr-x 4 kali-linux staff 136 18 Dec 19:45 .`
-
-`drwxr-xr-x 4 kali-linux staff 136 9 Dec 17:34 ..`
-
-`-rwxrwxrwx 1 kali-linux staff 8498 19 Dec 06:14 szynet.py`
-
-`-rw-r--r-- 1 kali-linux staff 844 10 Dec 10:45 listing-1-3.py`
-
-`<BHP:#> pwd`
-
-`/home/kali-linux/scripts/netcat`
+```cmd
+kali-linux$ ./szynet.py -l -p 9999 -c
+<CTRL-D>
+<BHP:#> ls -la
+drwxr-xr-x 4 kali-linux staff 136 18 Dec 19:45 .
+drwxr-xr-x 4 kali-linux staff 136 9 Dec 17:34 ..
+-rwxrwxrwx 1 kali-linux staff 8498 19 Dec 06:14 szynet.py
+-rw-r--r-- 1 kali-linux staff 844 10 Dec 10:45 listing-1-3.py
+<BHP:#> pwd
+/home/kali-linux/scripts/netcat
+```
 
 Obs.: Você vai notar que o código as funções não estão na ordem dos comentários isso por que fiz o comentário de acordo com a importância e o processo que execução do script.
 

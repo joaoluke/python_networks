@@ -43,6 +43,7 @@
     <li><a href="#server-tcp">Server TCP</a></li>
     <li><a href="#netcat">Substituindo o Netcat</a></li>
     <li><a href="#proxy-tcp">Criando um Proxy TCP</a></li>
+    <li><a href="#ssh-com-paramiko">SSH com Paramiko</a></li>
     <li><a href="#contribuição">Contribuição</a></li>
     <li><a href="#contato">Contato</a></li>
     <li><a href="#reconhecimentos">Reconhecimentos</a></li>
@@ -254,6 +255,102 @@ Meus parabéns você chegou ao fim de uma etapa bem difícil espero que tenha en
 ## Proxy TCP
 
 Os motivos para se ter um proxy em sua caixa de ferramentas são inúmeros, podemos usar para encaminhar trafego a ser enviado de host, seja para avaliar softwares baseados em rede. Ao realizar testes de invasão em ambientes corporativos, você comumente se deparará com o fato de não puder executar o Wireshark, não poder carregar drivers para fazer sniffing no loopback do Windows... Então vamos criar nosso próprio proxy TCP!
+
+Nosso script contém sete funções vou explicar uma por uma, algumas você já deve estar acostumado.
+
+1 - `server_loop()`
+
+* Essa função você já deve estar bem familiarizado com ela, começamos recebendo alguns argumentos de linha de comando.
+* Depois disparamos uma laço no servidor que fica ouvindo à espera de conexões.
+* Quando uma nova solicitação de conexão surgir, ela será passada a próxima função `proxy_handler()`
+
+2 - `main()`
+
+* A função principal do nosso script capaz de definir os dados a ser usado e chamar nossa função `server_loop()` com os parâmetros corretos para ficar ouvindo nossa rede.
+
+3 - `proxy_handler()`
+
+* Eis a função de que fará todo trabalho de envio e de recepção de dados para qualquer lado do stream de dados.
+* Começamos fazendo uma verificação para garantir que não precisaremos iniciar uma nova conexão.
+* Depois usamos nossa função `receive_from()` que será usada uns ambos lados da comunicação
+* Depois fazemos um dump do conteúdo do pacote para inspeciona-los e ver se há algo interessante.
+* Em seguida passamos a saída para nossa função `response_handler()`.
+* O restante é simples: lemos continuamente do host local processamos, enviamos para o host remoto, lemos o host, processamos e enviamos ao host local.
+
+4 - `hexdump()`
+
+* Na última parte do código.
+* Inicialmente criamos nossa função de dumping de valores hexa que simplesmente exibirá os detalhes dos pacotes mostrando tanto os valores hexadecimais quantos caracteres ASCII que possam ser exibidos.
+
+5 - `receive_from()`
+
+* A tal função função é usada tanto para receber dados locais quanto remotos e simplesmente lhe passam o objeto socket a ser usado.
+
+6 - `request_handler()` & `response_handler()`
+
+* Nas duas ultima funções permitem modificar qualquer tráfego destinado a qualquer lado do proxy.
+
+### Testando
+
+Bom, para testar você simplesmente pode fazer um comando com os paramentros que ja predefinimos que nossa função receba no prompt antecedendo com o `sudo` pois pode ser que a porta que você escolheu pode ser previlegiada e exige autorizações do usuário root (no meu caso vou colocar na porta 21 para conectar com meu ou nosso cliente TCP) desta forma: 
+
+```cmd
+kali-linux$ sudo python3 ./main.py 127.0.0.1 ftp.target.ca 21 True
+```
+
+Ou como acho que você quer ser uma pouco mais ousada e abrangente você pode conectar a uma servidor FTP de sua escolha e que realmente vai te responder, como google.com, facebook.com,... Basta configurar o proxy de seu navegador na porta 80 (porta de acesso HTTP) e rode seu código com as modificações igual no exemplo a seguir:
+
+No navegador (no meu caso irei usar o Firefox):
+
+Va em Preferences > Network Settings
+
+ <img  src="images/demo-proxy.png" width="600px;" alt=""/>
+
+ Deixe da seguinte configuração e rode o comando:
+
+ ```cmd
+ kali-linux$ sudo python3.9 ./main.py 127.0.0.1 80 www.google.com  80 True 
+ ```
+
+ E algo assim irá aparecer em sua tela:
+
+ ```cmd
+[*] Listening on 127.0.0.1:80
+[==>] Received incoming connection from 127.0.0.1:41452
+
+[<==] Received 201 bytes from localhost.
+0000   43 4F 4E 4E 45 43 54 20 77 77 77 2E 67 6F 6F 67    C O N N E C T   w w w . g o o g
+0010   6C 65 2E 63 6F 6D 3A 34 34 33 20 48 54 54 50 2F    l e . c o m : 4 4 3   H T T P /
+0020   31 2E 31 0D 0A 55 73 65 72 2D 41 67 65 6E 74 3A    1 . 1 . . U s e r - A g e n t :
+0030   20 4D 6F 7A 69 6C 6C 61 2F 35 2E 30 20 28 58 31      M o z i l l a / 5 . 0   ( X 1
+0040   31 3B 20 4C 69 6E 75 78 20 78 38 36 5F 36 34 3B    1 ;   L i n u x   x 8 6 _ 6 4 ;
+0050   20 72 76 3A 37 38 2E 30 29 20 47 65 63 6B 6F 2F      r v : 7 8 . 0 )   G e c k o /
+0060   32 30 31 30 30 31 30 31 20 46 69 72 65 66 6F 78    2 0 1 0 0 1 0 1   F i r e f o x
+0070   2F 37 38 2E 30 0D 0A 50 72 6F 78 79 2D 43 6F 6E    / 7 8 . 0 . . P r o x y - C o n
+0080   6E 65 63 74 69 6F 6E 3A 20 6B 65 65 70 2D 61 6C    n e c t i o n :   k e e p - a l
+[==>] Sent to remote.
+[<==] Received 1775 bytes from remote.
+ 65 64 69 61 20 6F 6E 6C 79 20 73    0 } } @ m e d i a   o n l y   s
+0500   63 72 65 65 6E 20 61 6E 64 20 28 2D 77 65 62 6B    c r e e n   a n d   ( - w e b k
+0510   69 74 2D 6D 69 6E 2D 64 65 76 69 63 65 2D 70 69    i t - m i n - d e v i c e - p i
+05A0   74 2D 62 61 63 6B 67 72 6F 75 6E 64 2D 73 69 7A    t - b a c k g r o u n d - s i z
+05B0   65 3A 31 30 30 25 20 31 30 30 25 7D 7D 23 6C 6F    e : 1 0 0 %   1 0 0 % } } # l o
+05C0   67 6F 7B 64 69 73 70 6C 61 79 3A 69 6E 6C 69 6E    g o { d i s p l a y : i n l i n
+05D0   65 2D 62 6C 6F 63 6B 3B 68 65 69 67 68 74 3A 35    e - b l o c k ; h e i g h t : 5
+05E0   34 70 78 3B 77 69 64 74 68 3A 31 35 30 70 78 7D    4 p x ; w i d t h : 1 5 0 p x }
+05F0   0A 20 20 3C 2F 73 74 79 6C 65 3E 0A 20 20 3C 61    .     < / s t y l e > .     < a
+0600   20 68 72 65 66 3D 2F 2F 77 77 77 2E 67 6F 6F 67      h r e f = / / w w w . g o o g
+0610   6C 65 2E 63 6F 6D 2F 3E 3C 73 70 61 6E 20 69 64    l e . c o m / > < s p a n   i d
+0620   3D 6C 6F 67 6F 20 61 72 69 61 2D 6C 61 62 65 6C    = l o g o   a r i a - l a b e l
+0630   3D 47 6F 6F 67 6C 65 3E 3C 2F 73 70 61 6E 3E 3C    = G o o g l e > < / s p a n > <
+0640   2F 61 3E 0A 20 20 3C 70 3E 3C 62 3E 34 30 35 2E    / a > .   
+[==>] Sent to localhost.
+[*] No more data. Closing connections.
+ ```
+
+Bom isso é tudo pessoal. Vamos para a próxima!
+
+## SSH com  Paramiko
 
 ## Contribuição
 Os comentários e os códigos foram retirados do livro: Black Hat Python de Justin Seitz publicado pela editora Novatec. Com algumas alterações quando aos comentários e ao código adaptado a versão 3.9 do Python
